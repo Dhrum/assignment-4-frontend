@@ -1,27 +1,36 @@
 // src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../Context/AuthContext';
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
-
   return (
-    <nav>
-      <h1>Course Tutor</h1>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/products">Products</Link></li>
-      </ul>
-      <div>
-        {user ? (
-          <>
-            <img src={user.photoURL} alt={user.displayName} />
-            <button onClick={logout}>Logout</button>
-          </>
-        ) : (
-          <Link to="/login"><button>Login</button></Link>
-        )}
+    <nav className="navbar">
+      <div className="container">
+        <h1 className="navbar-logo">Course Tutor</h1>
+
+        <ul className="navbar-menu">
+          <li>
+            <Link to="/explore">Explore</Link>
+          </li>
+          <li>
+            <Link to="/career">Find your New Career</Link>
+          </li>
+          <li>
+            <Link to="/degrees">Online Degrees</Link>
+          </li>
+        </ul>
+
+        <div className="navbar-search">
+          <input type="text" placeholder="What do you want to learn?" className="search-input" />
+          <button className="search-button">
+            <i className="fa fa-search"></i>
+          </button>
+        </div>
+
+        <div className="navbar-right">
+          <Link to="/login">Log In</Link>
+          <button className="join-button">Join for Free</button>
+        </div>
       </div>
     </nav>
   );

@@ -1,28 +1,26 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Products from './components/Products';
-import ProductDetails from './components/ProductDetails';
-import Footer from './components/Footer';
-import Login from './components/Login';
-import { AuthProvider } from '../src/Context/AuthContext';
+import Navbar from './components/Navbar'; // Default import
+import BannerCarousel from './components/BannerCarousel'; // Default import
+import NewCourses from './components/NewCourses'; // Default import
+import PopularCourses from './components/PopularCourses'; // Default import
+import PartnersSection from './components/PartnerSection'; // Default import
+//import ReviewsSection from './components/review'; // Default import
+import ReviewSubmissionForm from './components/ReviewSubmissionForm'; // Default import
+import Footer from './components/Footer'; // Default import
+import './App.css'; // Global CSS
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </AuthProvider>
+    <div>
+      <Navbar />
+      <BannerCarousel />
+      <NewCourses />
+      <PopularCourses />
+      <PartnersSection />
+      {/* <ReviewsSection /> */}
+      <ReviewSubmissionForm />
+      <Footer />
+    </div>
   );
 }
 
