@@ -5,6 +5,7 @@ import { useAuth } from '../Context/AuthContext'; // Import Auth Context
 import './Navbar.css'; // Import the Navbar CSS
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import logo from '../assets/images/favicon.png';
 
 const Navbar = () => {
   const { user, logout } = useAuth(); // Access the user and logout function from AuthContext
@@ -26,7 +27,10 @@ const Navbar = () => {
       <div className="container">
         {/* Logo as a link to the home page without underline */}
         <h1 className="navbar-logo">
-          <Link to="/" className="logo-link">Course Tutor</Link>
+          <Link to="/" className="logo-link">
+          <img src={logo} alt="Course Tutor Logo" className="logo-image" /> {/* Logo */}
+          Course Tutor
+          </Link>
         </h1>
 
         <ul className="navbar-menu">
@@ -51,8 +55,13 @@ const Navbar = () => {
         <div className="navbar-right">
           {user ? (
             <>
-              <span>{user.email}</span> {/* Show user's email */}
-              <button className="join-button" onClick={handleLogout}>Logout</button> {/* Logout button */}
+              {user.photoURL ? (
+                <img src={user.photoURL} alt="Profile" className="user-image" />
+              ) : ""}
+              <span className='userDisplayName'>{user.displayName ? user.displayName : user.email}</span> 
+              <button className="join-button" onClick={handleLogout}>
+                Logout
+              </button> {/* Logout button */}
             </>
           ) : (
             <>

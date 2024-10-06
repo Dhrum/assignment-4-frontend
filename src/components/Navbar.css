@@ -111,3 +111,15 @@
   font-weight: bold;
   color: #000; /* Customize color for the logo */
 }
+.logo-image {
+  width: 40px; /* Adjust width as needed */
+  height: auto;
+  margin-right: 10px; /* Space between logo and text */
+  vertical-align: middle; /* Align the logo vertically */
+}
+.user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: -20px;
+}
