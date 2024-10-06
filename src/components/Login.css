@@ -1,0 +1,97 @@
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.auth-container h2{
+    text-align: center;
+}
+
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .auth-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .auth-btn {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #2b6777;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .auth-btn:hover {
+    background-color: #1f4e5b;
+  }
+  
+  .auth-alternatives {
+    text-align: center;
+    margin-bottom: 15px;
+    
+  } 
+
+  .auth-alternatives .auth-buttons{    
+    justify-content: space-between;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .auth-alternatives p {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .auth-buttons .google-btn,.auth-buttons  .github-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    
+  }
+  
+  .google-btn img, .github-btn img {
+    margin-right: 8px;
+    width: 20px;
+  }
+  
+  .auth-buttons .google-btn {
+    background-color: #4285f4;
+    flex: 1;
+  }
+  
+  .auth-buttons .github-btn {
+    background-color: #333;
+    flex: 1;
+  }  
+  
+  .error-message {
+    color: red;
+    margin-bottom: 15px;
+  }
+  

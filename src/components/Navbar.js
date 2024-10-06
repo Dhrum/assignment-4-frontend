@@ -1,22 +1,40 @@
 // src/components/Navbar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../Context/AuthContext'; // Import Auth Context
+import './Navbar.css'; // Import the Navbar CSS
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
+  const { user, logout } = useAuth(); // Access the user and logout function from AuthContext
+  const navigate = useNavigate(); // For navigation
+
+  const handleLogout = async () => {
+    try {
+      await logout(); // Log the user out
+      navigate('/'); // Redirect to home page after logout
+      
+
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="container">
-        <h1 className="navbar-logo">Course Tutor</h1>
+        {/* Logo as a link to the home page without underline */}
+        <h1 className="navbar-logo">
+          <Link to="/" className="logo-link">Course Tutor</Link>
+        </h1>
 
         <ul className="navbar-menu">
           <li>
-            <Link to="/explore">Explore</Link>
+            <Link to="/Products">Explore Courses</Link>
           </li>
           <li>
-            <Link to="/career">Find your New Career</Link>
-          </li>
-          <li>
-            <Link to="/degrees">Online Degrees</Link>
+            <Link to="/Products">Online Degrees</Link>
           </li>
         </ul>
 
@@ -28,8 +46,17 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-right">
-          <Link to="/login">Log In</Link>
-          <button className="join-button">Join for Free</button>
+          {user ? (
+            <>
+              <span>{user.email}</span> {/* Show user's email */}
+              <button className="join-button" onClick={handleLogout}>Logout</button> {/* Logout button */}
+            </>
+          ) : (
+            <>
+              <Link to="/login">Log In</Link>
+              <Link to="/signup" className="join-button">Join for Free</Link> {/* Signup button */}
+            </>
+          )}
         </div>
       </div>
     </nav>

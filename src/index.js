@@ -6,13 +6,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from 'react-router-dom';  // Import BrowserRouter
+import { AuthProvider } from './Context/AuthContext';  // Import the AuthProvider
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>  {/* Wrap the App inside Router */}
-      <App />
-    </Router>
+    <AuthProvider> {/* Wrap the App inside AuthProvider */}
+      <Router>  {/* Wrap the App inside Router */}
+        <App />
+      </Router>
+    </AuthProvider>
   </React.StrictMode>
 );
 

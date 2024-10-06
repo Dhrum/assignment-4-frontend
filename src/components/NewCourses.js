@@ -1,26 +1,38 @@
-import React from 'react';
+// src/components/NewCourses.js
+import React, { useEffect, useState } from 'react';
+import CourseCard from './CourseCard'; // Import the reusable CourseCard component
 import './NewCourses.css';
 
 const NewCourses = () => {
-  const courses = [
-    { title: "ReactJS Basics", image: "/path/to/img1.jpg", description: "Learn React from scratch." },
-    { title: "Advanced JavaScript", image: "/path/to/img2.jpg", description: "Master advanced JS topics." },
-    { title: "Web Design 101", image: "/path/to/img3.jpg", description: "Design professional websites." }
-  ];
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://course-tutor-be.vercel.app/api/products');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        const shuffled = data.sort(() => 0.5 - Math.random());
+        setProducts(shuffled.slice(0, 3)); // Select 3 random products
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
-    <section className="new-courses">
-      <h2>New Courses <a href="/new-courses">Select All</a></h2>
-      <div className="courses-container">
-        {courses.map((course, index) => (
-          <div className="course-card" key={index}>
-            <img src={course.image} alt={course.title} />
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
-          </div>
+    <div className="new-courses">
+      <h2>New Courses</h2>
+      <div className="course-list">
+        {products.map((product) => (
+          <CourseCard key={product._id} product={product} />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

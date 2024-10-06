@@ -94,3 +94,20 @@
     }
   }
    */
+
+   /* Style for the logo link to remove underline */
+.logo-link {
+  text-decoration: none;  /* Remove underline */
+  color: inherit;         /* Inherit the default color of the text */
+}
+
+.logo-link:hover {
+  text-decoration: none;  /* Ensure no underline on hover */
+}
+
+/* Additional styles for the navbar (if needed) */
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000; /* Customize color for the logo */
+}

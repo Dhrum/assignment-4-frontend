@@ -1,49 +1,49 @@
 import React, { useState } from 'react';
 import { useAuth } from '../Context/AuthContext';
-import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../Firebase';
 import './Login.css'; // Reuse the login CSS
 import googlelogo from '../assets/images/google-logo.png';
 import githublogo from '../assets/images/github-logo.png';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const Login = () => {
+const Signup = () => {
   const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleSignup = async () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      navigate('/'); // Redirect to home page after successful login
+      navigate('/welcome'); // Redirect to welcome page after successful signup
     } catch (error) {
-      console.error('Google login error:', error);
-      setError('Failed to sign in with Google');
+      console.error('Google signup error:', error);
+      setError('Failed to sign up with Google');
     }
   };
 
-  const handleGithubLogin = async () => {
+  const handleGithubSignup = async () => {
     try {
       const provider = new GithubAuthProvider();
       await signInWithPopup(auth, provider);
-      navigate('/'); // Redirect to home page after successful login
+      navigate('/welcome'); // Redirect to welcome page after successful signup
     } catch (error) {
-      console.error('GitHub login error:', error);
-      setError('Failed to sign in with GitHub');
+      console.error('GitHub signup error:', error);
+      setError('Failed to sign up with GitHub');
     }
   };
 
-  const handleEmailLogin = async (e) => {
+  const handleEmailSignup = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/'); // Redirect to home page after successful login
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/welcome'); // Redirect to welcome page after successful signup
     } catch (error) {
-      setError('Failed to sign in with email and password');
-      console.error('Email login error:', error);
+      setError('Failed to sign up with email and password');
+      console.error('Email signup error:', error);
     }
   };
 
@@ -51,10 +51,10 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <h2>Sign In</h2>
+      <h2>Sign Up</h2>
       {error && <p className="error-message">{error}</p>}
 
-      <form className="auth-form" onSubmit={handleEmailLogin}>
+      <form className="auth-form" onSubmit={handleEmailSignup}>
         <label htmlFor="email">Email Address</label>
         <input
           type="email"
@@ -75,22 +75,20 @@ const Login = () => {
           required
         />
 
-        <button type="submit" className="auth-btn">Sign In</button>
+        <button type="submit" className="auth-btn">Sign Up</button>
       </form>
 
       <div className="auth-alternatives">
-        <p>or sign in with</p>
-        <div className='auth-buttons'>
-          <button className="auth-btn google-btn" onClick={handleGoogleLogin}>
-            <img src={googlelogo} alt="Google Logo" /> Google
-          </button>
-          <button className="auth-btn github-btn" onClick={handleGithubLogin}>
-            <img src={githublogo} alt="GitHub Logo" /> GitHub
-          </button>
-        </div>
+        <p>or sign up with</p>
+        <button className="auth-btn google-btn" onClick={handleGoogleSignup}>
+          <img src={googlelogo} alt="Google Logo" /> Google
+        </button>
+        <button className="auth-btn github-btn" onClick={handleGithubSignup}>
+          <img src={githublogo} alt="GitHub Logo" /> GitHub
+        </button>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

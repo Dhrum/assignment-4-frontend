@@ -4,8 +4,9 @@
   }
   
   .popular-courses h2 {
-    font-size: 24px;
+    
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .popular-courses a {
