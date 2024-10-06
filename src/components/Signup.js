@@ -79,13 +79,15 @@ const Signup = () => {
       </form>
 
       <div className="auth-alternatives">
-        <p>or sign up with</p>
-        <button className="auth-btn google-btn" onClick={handleGoogleSignup}>
-          <img src={googlelogo} alt="Google Logo" /> Google
-        </button>
-        <button className="auth-btn github-btn" onClick={handleGithubSignup}>
-          <img src={githublogo} alt="GitHub Logo" /> GitHub
-        </button>
+        <p>or sign in with</p>
+        <div className='auth-buttons'>
+          <button className="auth-btn google-btn" onClick={handleGoogleSignup}>
+            <img src={googlelogo} alt="Google Logo" /> Google
+          </button>
+          <button className="auth-btn github-btn" onClick={handleGithubSignup}>
+            <img src={githublogo} alt="GitHub Logo" /> GitHub
+          </button>
+        </div>
       </div>
     </div>
   );
