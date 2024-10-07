@@ -5,6 +5,7 @@ body {
   padding: 0;
   background-color: #f4f4f9;
   color: #333;
+  /* padding-top:80px; */
 }
 
 h1, h2, h3 {
@@ -23,124 +24,6 @@ h1, h2, h3 {
   margin: 0 auto; /* Centers the content */
   padding: 0 20px; /* Adds padding to the left and right */
 }
-
-/* Navbar Styles */
-.navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-}
-
-/* Logo Styling */
-.navbar-logo {
-  font-size: 24px;
-  color: #0056d2;
-  font-weight: bold;
-  margin-right: 30px;
-}
-
-/* Menu Styling */
-.navbar-menu {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin-left: 20px; /* Space between logo and menu */
-  margin-right: 20px;
-  margin-top: 10px;
-}
-
-.navbar-menu li {
-  display: inline;
-}
-
-.navbar-menu li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 0px ;
-  transition: color 0.3s ease;
-}
-
-.navbar-menu li a:hover {
-  color: #0056d2;
-}
-
-/* Search Bar Styling */
-.navbar-search {
-  position: relative; /* Set container relative to place button inside */
-  max-width: 400px;
-  flex-grow: 1;
-  margin-left: auto;
-  margin-right: 20px;
-  display: flex;
-}
-
-.search-input {
-  padding: 10px 20px;
-  width: 100%;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  padding-right: 45px; /* Add padding to the right for the button */
-}
-
-.search-button {
-  position: absolute; /* Absolute positioning inside the search box */
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #0056d2;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 36px;
-  width: 36px;
-}
-
-.search-button i {
-  font-size: 18px;
-}
-
-
-/* Right Side Buttons */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.navbar-right a {
-  color: #0056d2;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.join-button {
-  padding: 8px 20px;
-  background-color: white;
-  color: #0056d2;
-  border: 1px solid #0056d2;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.join-button:hover {
-  background-color: #0056d2;
-  color: white;
-}
-
-
 
 /* BannerCarousel Custom Styling */
 .carousel-img {
@@ -247,19 +130,6 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Footer */
-footer {
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
-
-footer p {
-  margin: 0;
-  font-size: 16px;
-}
-
 /* Products Page */
 .product-list {
   display: grid;
@@ -293,31 +163,3 @@ footer p {
 .product-card a:hover {
   text-decoration: underline;
 }
-
-/* Login Page */
-.login-container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.auth-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.auth-buttons button {
-  padding: 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 18px;
-}
-
-.auth-buttons button:hover {
-  background-color: #0056b3;
-}
-

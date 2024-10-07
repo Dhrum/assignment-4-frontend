@@ -1,5 +1,8 @@
 import React from 'react';
 import './Footer.css'; // Import the CSS for the footer
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../Context/AuthContext'; // Import Auth Context
+
 
 const Footer = () => {
   return (
@@ -8,18 +11,20 @@ const Footer = () => {
         {/* About Section */}
         <div className="footer-about">
           <h2>About Course Tutor</h2>
-          <p>Your destination for mastering new skills and exploring the world of online education. With hundreds of courses led by top industry experts, we help you stay ahead in a fast-changing world.</p>
+          <p>
+            Your destination for mastering new skills and exploring the world of online education. With hundreds of courses led by top industry experts, we help you stay ahead in a fast-changing world.
+          </p>
         </div>
 
         {/* Quick Links Section */}
         <div className="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="/products">Explore Courses</a></li>
-            <li><a href="/degrees">Online Degrees</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Sign Up</a></li>
-            <li><a href="/about">About Us</a></li>
+            <li><Link to="/products">Explore Courses</Link></li>
+            <li><Link to="/degrees">Online Degrees</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/signup">Sign Up</Link></li>
+            <li><Link to="/about">About Us</Link></li>
           </ul>
         </div>
 
@@ -42,6 +47,7 @@ const Footer = () => {
           </div>
         </div>
 
+      
         {/* Subscription Section */}
         <div className="footer-subscribe">
           <h3>Subscribe to Our Newsletter</h3>

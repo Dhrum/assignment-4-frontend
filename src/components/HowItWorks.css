@@ -1,0 +1,82 @@
+.how-it-works {
+    background-color: #f8f9fa; /* Light background */
+    padding: 60px 20px;
+  }
+  
+  .how-it-works-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #2b6777;
+    font-weight: bold;
+  }
+  
+  /* Grid layout for steps */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Step card design */
+  .step-card {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Icons for steps */
+  .icon-box {
+    background-color: #2b6777;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+  }
+  
+  .icon {
+    color: white;
+    font-size: 24px;
+  }
+  
+  /* Step card title */
+  .step-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Step card text */
+  .step-card p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 992px) {
+    .steps-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+  

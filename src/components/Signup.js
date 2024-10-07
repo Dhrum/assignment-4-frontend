@@ -5,14 +5,14 @@ import { auth } from '../Firebase';
 import './Login.css'; // Reuse the login CSS
 import googlelogo from '../assets/images/google-logo.png';
 import githublogo from '../assets/images/github-logo.png';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleGoogleSignup = async () => {
     try {
@@ -38,16 +38,34 @@ const Signup = () => {
 
   const handleEmailSignup = async (e) => {
     e.preventDefault();
+
+    if (password.length < 6) {
+      setError('Password should be at least 6 characters');
+      return;
+    }
+
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       navigate('/welcome'); // Redirect to welcome page after successful signup
     } catch (error) {
-      setError('Failed to sign up with email and password');
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          setError('This email is already in use. Please try logging in.');
+          break;
+        case 'auth/invalid-email':
+          setError('Please enter a valid email address.');
+          break;
+        case 'auth/weak-password':
+          setError('Password should be at least 6 characters.');
+          break;
+        default:
+          setError('Failed to sign up with email and password. Please try again later.');
+      }
       console.error('Email signup error:', error);
     }
   };
 
-  if (user) return <p>You are logged in as {user.email}</p>;
+  if (user) return <p>You are logged in as {user.displayName || user.email}</p>;
 
   return (
     <div className="auth-container">

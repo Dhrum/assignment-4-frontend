@@ -1,101 +1,120 @@
-/* .navbar {
-    background-color: #fff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-  
-  .navbar-logo {
-    font-size: 24px;
-    color: #0056d2;
-  }
-  
-  .navbar-menu {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .navbar-menu li {
-    margin-right: 20px;
-  }
-  
-  .navbar-menu a {
-    color: #333;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .navbar-menu a:hover {
-    color: #0056d2;
-  }
-  .navbar {
-    background-color: #fff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-  
-  .navbar-logo {
-    font-size: 24px;
-    color: #0056d2;
-  }
-  
-  .navbar-menu {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .navbar-menu li {
-    margin-right: 20px;
-  }
-  
-  .navbar-menu a {
-    color: #333;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .navbar-menu a:hover {
-    color: #0056d2;
-  }
-  /* Mobile Adjustments */
-  /*
-@media (max-width: 768px) {
-    .navbar-menu {
-      flex-direction: column; /* Stack menu items vertically 
-      text-align: center;
-      padding: 20px 0;
-    }
-  
-    .navbar-menu li {
-      margin: 10px 0;
-    }
-  
-    .navbar-logo {
-      font-size: 20px;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .navbar-logo {
-      font-size: 18px;
-    }
-  
-    .navbar-menu {
-      gap: 10px; /* Reduce space between items 
-    }
-  }
-   */
+/* Navbar Styles */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-   /* Style for the logo link to remove underline */
+/* Logo Styling */
+.navbar-logo {
+  font-size: 24px;
+  color: #0056d2;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+/* Menu Styling */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin-left: 20px; /* Space between logo and menu */
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.navbar-menu li {
+  display: inline;
+}
+
+.navbar-menu li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0px;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  color: #0056d2;
+}
+
+/* Search Bar Styling */
+.navbar-search {
+  position: relative; /* Set container relative to place button inside */
+  max-width: 400px;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+}
+
+.search-input {
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding-right: 45px; /* Add padding to the right for the button */
+}
+
+.search-button {
+  position: absolute; /* Absolute positioning inside the search box */
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #0056d2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+}
+
+.search-button i {
+  font-size: 18px;
+}
+
+/* Right Side Buttons */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-right a {
+  color: #0056d2;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.join-button {
+  padding: 8px 20px;
+  background-color: white;
+  color: #0056d2;
+  border: 1px solid #0056d2;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.join-button:hover {
+  background-color: #0056d2;
+  color: white;
+}
+
+/* Style for the logo link to remove underline */
 .logo-link {
   text-decoration: none;  /* Remove underline */
   color: inherit;         /* Inherit the default color of the text */
@@ -111,12 +130,14 @@
   font-weight: bold;
   color: #000; /* Customize color for the logo */
 }
+
 .logo-image {
   width: 40px; /* Adjust width as needed */
   height: auto;
   margin-right: 10px; /* Space between logo and text */
   vertical-align: middle; /* Align the logo vertically */
 }
+
 .user-image {
   width: 40px;
   height: 40px;
